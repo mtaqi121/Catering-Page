@@ -18,7 +18,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 // Extend schema for frontend to coerce numbers from string inputs
 const formSchema = insertReservationSchema.extend({
-  seats: z.coerce.number().min(1, "Must be at least 1 seat").max(500, "For events larger than 500, please call us directly"),
+  seats: z.coerce.number().min(1, "Must be at least 1 person").max(500, "For events larger than 500, please call us directly"),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -42,6 +42,19 @@ export function Booking() {
   function onSubmit(data: FormValues) {
     createReservation(data, {
       onSuccess: () => {
+        // open user's mail client with details so the caterer also receives an email copy
+        const subject = encodeURIComponent("New Booking Request");
+        const body = encodeURIComponent(
+          `Name: ${data.name}\n` +
+          `Email: ${data.email}\n` +
+          `Phone: ${data.phone}\n` +
+          `Persons: ${data.seats}\n` +
+          `Date: ${data.date}\n` +
+          `Time: ${data.time}\n` +
+          `Special Requests: ${data.specialRequest}`
+        );
+        window.location.href = `mailto:shahdiyanacateringservices@gmail.com?subject=${subject}&body=${body}`;
+
         form.reset();
       }
     });
@@ -66,8 +79,8 @@ export function Booking() {
           {/* Decorative Left Side */}
           <div className="hidden lg:block lg:col-span-2 relative bg-primary/5 p-12 flex flex-col justify-between">
             <div>
-              <h3 className="font-display text-4xl font-bold text-white mb-4">Book Your <br/><span className="text-primary italic">Table</span></h3>
-              <p className="text-white/60 font-light">Join us for an exquisite dining experience. Secure your spot and let us take care of the rest.</p>
+              <h3 className="font-display text-4xl font-bold text-white mb-4">Booking</h3>
+              <p className="text-white/60 font-light">Planning an event? Our catering experts will tailor menus to your celebration and deliver exceptional service right to your venue.</p>
             </div>
             <div className="space-y-6">
               <div className="border-l-2 border-primary pl-4">
@@ -139,7 +152,7 @@ export function Booking() {
                       name="seats"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-white/80 uppercase text-xs tracking-wider">Seats</FormLabel>
+                          <FormLabel className="text-white/80 uppercase text-xs tracking-wider">Persons</FormLabel>
                           <FormControl>
                             <Input type="number" min="1" {...field} className="bg-background/50 border-white/10 focus-visible:ring-primary/50 text-white rounded-none" />
                           </FormControl>
@@ -201,7 +214,7 @@ export function Booking() {
                     className="w-full rounded-none bg-primary text-primary-foreground hover:bg-white hover:text-black transition-all duration-300 font-semibold py-6 uppercase tracking-widest text-sm"
                     disabled={isPending}
                   >
-                    {isPending ? "Confirming..." : "Confirm Reservation"}
+                    {isPending ? "Confirming..." : "Confirm Booking"}
                   </Button>
                 </form>
               </Form>

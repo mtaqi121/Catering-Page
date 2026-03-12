@@ -55,7 +55,7 @@ export function Navbar() {
             asChild
             className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-6 py-5 uppercase tracking-widest text-xs"
           >
-            <a href="#booking">Book Table</a>
+            <a href="#booking">Booking</a>
           </Button>
         </nav>
 

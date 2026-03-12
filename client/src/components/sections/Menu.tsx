@@ -4,28 +4,47 @@ const MENU_DATA = [
   {
     category: "Starters",
     items: [
-      { name: "Hot & Sour Soup", desc: "Classic rich broth with chicken and vegetables", price: "Rs 450" },
-      { name: "Crispy Spring Rolls", desc: "Hand-rolled with vegetables and served with sweet chili", price: "Rs 380" },
-      { name: "Chicken Tikka Skewers", desc: "Charcoal-grilled tender chicken marinated in spices", price: "Rs 650" },
-      { name: "Dynamite Prawns", desc: "Crispy fried prawns tossed in spicy mayo", price: "Rs 850" },
+      { name: "Chicken Spring Rolls", desc: "Classic wedding favorite" },
+      { name: "Chicken Cheese Balls", desc: "Cheesy, crispy bite-size treats" },
+      { name: "Chicken Nuggets", desc: "Golden fried chicken pieces" },
+      { name: "Chicken Drumsticks", desc: "Succulent and flavorful" },
+      { name: "Mini Chicken Shawarma", desc: "Wrapped in pita with garlic sauce" },
+      { name: "Chicken Tikka Bites", desc: "Spiced grilled chicken cubes" },
+      { name: "Fish Fingers", desc: "Crispy battered fish strips" },
+      { name: "Vegetable Spring Rolls", desc: "Fresh veggies in a crisp roll" },
     ]
   },
   {
     category: "Main Course",
     items: [
-      { name: "Shah Special Biryani", desc: "Aromatic basmati rice cooked with tender meat and saffron", price: "Rs 800" },
-      { name: "Mutton Qorma", desc: "Rich, slow-cooked meat stew with traditional spices", price: "Rs 1200" },
-      { name: "Chicken Karahi", desc: "Wok-cooked chicken with tomatoes, green chilies and ginger", price: "Rs 950" },
-      { name: "Palak Paneer", desc: "Creamy spinach cooked with fresh cottage cheese", price: "Rs 600" },
+      { name: "Chicken Biryani", desc: "Flavorsome spiced rice with tender chicken" },
+      { name: "Chicken Koyla Karahi", desc: "Smoky wok-cooked chicken with capsicum" },
+      { name: "Chicken Handi", desc: "Creamy and rich chicken gravy" },
+      { name: "Mutton Karahi", desc: "Spiced mutton with tomatoes and green chilies" },
+      { name: "Chicken Qorma", desc: "Mildly spiced chicken curry with yogurt" },
+      { name: "Beef Bihari Boti", desc: "Marinated beef cubes grilled to perfection" },
+      { name: "Chicken Seekh Kabab", desc: "Spiced minced chicken skewers" },
+      { name: "Chicken Tikka", desc: "Tandoori grilled chicken chunks" },
+      { name: "Mutton Pulao", desc: "Fragrant rice cooked with mutton pieces" },
+      { name: "Russian Salad", desc: "Creamy vegetable salad" },
+      { name: "Raita", desc: "Cooling yogurt with cucumbers" },
+      { name: "Naan", desc: "Soft traditional flatbread" },
+      { name: "Roghni Naan", desc: "Buttery rich naan topped with sesame seeds" },
+      { name: "Taftan", desc: "Saffron-infused leavened bread" },
     ]
   },
   {
     category: "Desserts",
     items: [
-      { name: "Shahi Kheer", desc: "Traditional rice pudding garnished with almonds and pistachios", price: "Rs 300" },
-      { name: "Gulab Jamun", desc: "Warm milk dumplings soaked in rose-scented syrup", price: "Rs 250" },
-      { name: "Gajar Ka Halwa", desc: "Rich carrot dessert slow-cooked in milk and ghee", price: "Rs 350" },
-      { name: "Ras Malai", desc: "Soft cottage cheese patties in thickened sweetened milk", price: "Rs 400" },
+      { name: "Gulab Jamun", desc: "Warm milk dumplings soaked in rose-scented syrup" },
+      { name: "Rasmalai", desc: "Soft cheese patties in sweetened milk" },
+      { name: "Kheer", desc: "Classic rice pudding" },
+      { name: "Shahi Tukray", desc: "Fried bread in creamy milk with nuts" },
+      { name: "Custard", desc: "Rich vanilla-flavored custard" },
+      { name: "Ice Cream", desc: "Assorted flavors" },
+      { name: "Fruit Trifle", desc: "Layers of cake, custard, and fruit" },
+      { name: "Zarda", desc: "Sweet saffron rice with nuts" },
+      { name: "Gajar Halwa", desc: "Carrot pudding cooked in milk and ghee" },
     ]
   }
 ];
@@ -65,7 +84,7 @@ export function Menu() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.2, duration: 0.6 }}
-              className="bg-background rounded-xl p-8 border border-white/5 shadow-xl hover:border-primary/30 transition-colors duration-300"
+              className="bg-background rounded-xl p-8 border border-white/5 shadow-xl hover:border-primary/30 transition-colors duration-300 self-start"
             >
               <h3 className="font-display text-2xl text-primary font-bold mb-8 text-center border-b border-white/10 pb-4">
                 {section.category}
@@ -77,8 +96,15 @@ export function Menu() {
                       <h4 className="text-white font-medium font-display tracking-wide group-hover:text-primary transition-colors">
                         {item.name}
                       </h4>
-                      <div className="flex-grow mx-4 border-b border-dotted border-white/20 mb-1 opacity-50"></div>
-                      <span className="text-primary font-semibold shrink-0">{item.price}</span>
+                      {/* show divider and price only if a price is provided */}
+                      {item.price ? (
+                        <>
+                          <div className="flex-grow mx-4 border-b border-dotted border-white/20 mb-1 opacity-50"></div>
+                          <span className="text-primary font-semibold shrink-0">{item.price}</span>
+                        </>
+                      ) : (
+                        <div className="flex-grow mx-4 border-b border-dotted border-white/20 mb-1 opacity-50"></div>
+                      )}
                     </div>
                     <p className="text-sm text-white/50 font-light pr-12">{item.desc}</p>
                   </li>
@@ -96,7 +122,7 @@ export function Menu() {
         >
           <h4 className="font-display text-2xl text-white mb-2">Planning a Large Event?</h4>
           <p className="text-white/70 mb-4">We offer customized catering packages tailored to your specific needs and guest counts.</p>
-          <a href="#contact" className="inline-block text-primary font-semibold uppercase tracking-wider hover:text-white transition-colors border-b border-primary hover:border-white pb-1">
+          <a href="https://wa.me/923043635628" target="_blank" rel="noopener noreferrer" className="inline-block text-primary font-semibold uppercase tracking-wider hover:text-white transition-colors border-b border-primary hover:border-white pb-1">
             Request a Quote
           </a>
         </motion.div>

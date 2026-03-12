@@ -22,14 +22,14 @@ export function useCreateReservation() {
           const error = api.reservations.create.responses[400].parse(await res.json());
           throw new Error(error.message);
         }
-        throw new Error("Failed to submit reservation");
+        throw new Error("Failed to submit booking");
       }
 
       return api.reservations.create.responses[201].parse(await res.json());
     },
     onSuccess: () => {
       toast({
-        title: "Reservation Confirmed",
+        title: "Booking Confirmed",
         description: "We look forward to hosting your beautiful celebration!",
         duration: 5000,
       });

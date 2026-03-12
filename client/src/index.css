@@ -92,3 +92,29 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover,
 input[type="time"]::-webkit-calendar-picker-indicator:hover {
   opacity: 1;
 }
+
+/* Additional responsive tweaks for mobile, tablet, and small laptop breakpoints */
+@media (max-width: 640px) {
+  /* mobile: slightly reduce container padding and adjust heading sizes */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .font-display {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* tablet: ensure grid items stack neatly and text scales properly */
+  .max-w-4xl {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  /* small laptops: slightly tighten the main container width */
+  .max-w-7xl {
+    max-width: 95%;
+  }
+}
