@@ -4,47 +4,73 @@ const MENU_DATA = [
   {
     category: "Starters",
     items: [
-      { name: "Chicken Spring Rolls", desc: "Classic wedding favorite" },
-      { name: "Chicken Cheese Balls", desc: "Cheesy, crispy bite-size treats" },
-      { name: "Chicken Nuggets", desc: "Golden fried chicken pieces" },
-      { name: "Chicken Drumsticks", desc: "Succulent and flavorful" },
-      { name: "Mini Chicken Shawarma", desc: "Wrapped in pita with garlic sauce" },
-      { name: "Chicken Tikka Bites", desc: "Spiced grilled chicken cubes" },
-      { name: "Fish Fingers", desc: "Crispy battered fish strips" },
-      { name: "Vegetable Spring Rolls", desc: "Fresh veggies in a crisp roll" },
+      { name: "Fresh Juice", desc: "" },
+      { name: "Chicken Wonton", desc: "" },
+      { name: "Mint Rolls", desc: "" },
+      { name: "Chicken Spring Rolls", desc: "" },
+      { name: "Arabian Cheese Puff", desc: "" },
+      { name: "Mini Sandwich", desc: "" },
+      { name: "Chicken Mini Samosa", desc: "" },
+      { name: "Vegetable Samosa", desc: "" },
+      { name: "Chicken Wings", desc: "" },
+      { name: "Chicken Nuggets", desc: "" },
+      { name: "Prawn Tempura", desc: "" },
+      { name: "Cheese Balls", desc: "" },
+      { name: "French Fries", desc: "" },
+      { name: "Dynamite Chicken", desc: "" },
+      { name: "Prawn Dynamite", desc: "" },
+      { name: "Mini Pizza", desc: "" },
+      { name: "Chicken Patties", desc: "" },
+      { name: "Chicken Popcorn", desc: "" },
+      { name: "Drumsticks & much more", desc: "" },
     ]
   },
   {
     category: "Main Course",
     items: [
-      { name: "Chicken Biryani", desc: "Flavorsome spiced rice with tender chicken" },
-      { name: "Chicken Koyla Karahi", desc: "Smoky wok-cooked chicken with capsicum" },
-      { name: "Chicken Handi", desc: "Creamy and rich chicken gravy" },
-      { name: "Mutton Karahi", desc: "Spiced mutton with tomatoes and green chilies" },
-      { name: "Chicken Qorma", desc: "Mildly spiced chicken curry with yogurt" },
-      { name: "Beef Bihari Boti", desc: "Marinated beef cubes grilled to perfection" },
-      { name: "Chicken Seekh Kabab", desc: "Spiced minced chicken skewers" },
-      { name: "Chicken Tikka", desc: "Tandoori grilled chicken chunks" },
-      { name: "Mutton Pulao", desc: "Fragrant rice cooked with mutton pieces" },
-      { name: "Russian Salad", desc: "Creamy vegetable salad" },
-      { name: "Raita", desc: "Cooling yogurt with cucumbers" },
-      { name: "Naan", desc: "Soft traditional flatbread" },
-      { name: "Roghni Naan", desc: "Buttery rich naan topped with sesame seeds" },
-      { name: "Taftan", desc: "Saffron-infused leavened bread" },
+      { name: "Chicken Biryani", desc: "" },
+      { name: "Mutton Biryani", desc: "" },
+      { name: "Beef Biryani", desc: "" },
+      { name: "Sindhi Biryani", desc: "" },
+      { name: "Hyderabadi Biryani", desc: "" },
+      { name: "Chicken Karahi", desc: "" },
+      { name: "Mutton Karahi", desc: "" },
+      { name: "Beef Karahi", desc: "" },
+      { name: "White Karahi", desc: "" },
+      { name: "Peshawari Karahi", desc: "" },
+      { name: "Chicken Qorma", desc: "" },
+      { name: "Mutton Qorma", desc: "" },
+      { name: "Beef Qorma", desc: "" },
+      { name: "Shahi Qorma", desc: "" },
+      { name: "Chicken Handi", desc: "" },
+      { name: "Chicken Malai Handi", desc: "" },
+      { name: "Chicken Achari Handi", desc: "" },
+      { name: "Mutton Handi", desc: "" },
+      { name: "Chicken Tikka", desc: "" },
     ]
   },
   {
     category: "Desserts",
     items: [
-      { name: "Gulab Jamun", desc: "Warm milk dumplings soaked in rose-scented syrup" },
-      { name: "Rasmalai", desc: "Soft cheese patties in sweetened milk" },
-      { name: "Kheer", desc: "Classic rice pudding" },
-      { name: "Shahi Tukray", desc: "Fried bread in creamy milk with nuts" },
-      { name: "Custard", desc: "Rich vanilla-flavored custard" },
-      { name: "Ice Cream", desc: "Assorted flavors" },
-      { name: "Fruit Trifle", desc: "Layers of cake, custard, and fruit" },
-      { name: "Zarda", desc: "Sweet saffron rice with nuts" },
-      { name: "Gajar Halwa", desc: "Carrot pudding cooked in milk and ghee" },
+      { name: "Cream Cocktail", desc: "" },
+      { name: "Doodh Dulari", desc: "" },
+      { name: "Rabri kheer", desc: "" },
+      { name: "Arabian Delight", desc: "" },
+      { name: "Mango Delight", desc: "" },
+      { name: "Pineapple delight", desc: "" },
+      { name: "Anjeer Delight", desc: "" },
+      { name: "Vanilla Delight", desc: "" },
+      { name: "Gulab Jamun", desc: "" },
+      { name: "Ras Malai", desc: "" },
+      { name: "Kheer", desc: "" },
+      { name: "Zarda", desc: "" },
+      { name: "Shahi Tukda", desc: "" },
+      { name: "Kunafa", desc: "" },
+      { name: "Gajar ka Halwa (in seasons only)", desc: "" },
+      { name: "Suji ka Halwa", desc: "" },
+      { name: "Dessert Bar with Fountain", desc: "" },
+      { name: "Litred ice Cream", desc: "" },
+      { name: "Kulfa & much more.", desc: "" },
     ]
   }
 ];
@@ -96,15 +122,7 @@ export function Menu() {
                       <h4 className="text-white font-medium font-display tracking-wide group-hover:text-primary transition-colors">
                         {item.name}
                       </h4>
-                      {/* show divider and price only if a price is provided */}
-                      {item.price ? (
-                        <>
-                          <div className="flex-grow mx-4 border-b border-dotted border-white/20 mb-1 opacity-50"></div>
-                          <span className="text-primary font-semibold shrink-0">{item.price}</span>
-                        </>
-                      ) : (
-                        <div className="flex-grow mx-4 border-b border-dotted border-white/20 mb-1 opacity-50"></div>
-                      )}
+                      <div className="flex-grow mx-4 border-b border-dotted border-white/20 mb-1 opacity-50"></div>
                     </div>
                     <p className="text-sm text-white/50 font-light pr-12">{item.desc}</p>
                   </li>

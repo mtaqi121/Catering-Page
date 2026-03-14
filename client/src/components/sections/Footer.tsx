@@ -11,9 +11,12 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-6">
             <a href="#home" className="inline-block">
               <span className="font-display font-bold text-3xl tracking-wider text-white">
-                SHAH<span className="text-primary">DIYANA</span>
+                SHAH - <span className="text-primary">DIYANA</span>
               </span>
             </a>
+            <p className="text-white/60 font-light max-w-md leading-relaxed">
+              Where Taste Meets Beautiful Celebrations!
+            </p>
             <p className="text-white/60 font-light max-w-md leading-relaxed">
               Premium catering and pakwan center dedicated to bringing authentic taste and elegance to your memorable celebrations in Karachi.
             </p>
